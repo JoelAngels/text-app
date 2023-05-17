@@ -20,17 +20,29 @@ export default function TabOneScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
     flexDirection: "row",
+    padding: 10,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderColor: "lightgrey",
   },
+
   userImage: {
     width: 50,
     height: 50,
     borderRadius: 50,
   },
+
   mainContainer: {
     marginLeft: 10,
+    flex: 1,
+  },
+
+  name: {
+    fontWeight: "600",
+  },
+
+  content: {
+    lineHeight: 20,
+    marginTop: 5,
   },
 });
