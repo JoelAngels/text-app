@@ -10,8 +10,9 @@ const tweet = tweets[0];
 export default function TabOneScreen() {
   return (
     <View style={styles.page}>
-      <Tweet />
-      <Tweet />
+      <Tweet tweet={tweets[0]} />
+      <Tweet tweet={tweets[1]} />
+      <Tweet tweet={tweets[2]} />
     </View>
   );
 }
