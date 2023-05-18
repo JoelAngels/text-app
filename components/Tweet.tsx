@@ -13,7 +13,7 @@ const Tweet = ({ tweet }) => {
     </View>
   );
 };
-
+3178;
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
