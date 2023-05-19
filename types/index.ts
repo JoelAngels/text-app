@@ -11,8 +11,8 @@ export type TweetType = {
   user: User;
   createdAt: string;
   image?: string;
-  numberOfComments: number;
-  numberOfRetweets: number;
-  numberOfLikes: number;
-  impressions: number;
+  numberOfComments?: number;
+  numberOfRetweets?: number;
+  numberOfLikes?: number;
+  impressions?: number;
 };
