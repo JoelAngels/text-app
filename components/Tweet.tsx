@@ -15,6 +15,8 @@ const Tweet = ({ tweet }: TweetProps) => {
       <View style={styles.mainContainer}>
         <Text style={styles.name}>{tweet.user.name}</Text>
         <Text style={styles.content}>{tweet.content}</Text>
+        {/* Rendering an item on a screen based on condition */}
+        {tweet.image && <Image src={tweet.image} style={styles.image} />}
       </View>
     </View>
   );
@@ -47,6 +49,14 @@ const styles = StyleSheet.create({
   content: {
     lineHeight: 20,
     marginTop: 5,
+  },
+
+  image: {
+    width: "100%",
+    // dinamic height
+    aspectRatio: 16 / 9,
+    marginTop: 10,
+    borderRadius: 15,
   },
 });
 export default Tweet;
