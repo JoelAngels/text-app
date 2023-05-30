@@ -1,7 +1,7 @@
 import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 import React from "react";
 
-import { Entypo } from "@expo/vector-icons";
+import { Entypo, EvilIcons } from "@expo/vector-icons";
 
 import { TweetType } from "../types";
 
@@ -29,6 +29,16 @@ const Tweet = ({ tweet }: TweetProps) => {
         <Text style={styles.content}>{tweet.content}</Text>
         {/* Rendering an item on a screen based on condition */}
         {tweet.image && <Image src={tweet.image} style={styles.image} />}
+
+        <View style={styles.footer}>
+          {/* Comment IconButton */}
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            {/* Icon */}
+            <EvilIcons name="comment" size={22} color="gray" />
+            {/* Number */}
+            <Text style={{ fontSize: 12, color: "gray" }}>123</Text>
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -72,8 +82,13 @@ const styles = StyleSheet.create({
     width: "100%",
     // dinamic height
     aspectRatio: 16 / 9,
-    marginTop: 10,
+    marginVertical: 10,
     borderRadius: 15,
+  },
+
+  footer: {
+    flexDirection: "row",
+    marginVertical: 5,
   },
 });
 export default Tweet;
