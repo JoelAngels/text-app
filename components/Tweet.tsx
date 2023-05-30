@@ -5,6 +5,22 @@ import { Entypo, EvilIcons } from "@expo/vector-icons";
 
 import { TweetType } from "../types";
 
+type IconButtonProps = {
+  icon: React.ComponentProps<typeof EvilIcons>["name"];
+  text?: string | number;
+};
+
+const IconButton = ({ icon, text }: IconButtonProps) => {
+  return (
+    <View style={{ flexDirection: "row", alignItems: "center" }}>
+      {/* Icon */}
+      <EvilIcons name={icon} size={22} color="gray" />
+      {/* Number */}
+      <Text style={{ fontSize: 12, color: "gray" }}>{text}</Text>
+    </View>
+  );
+};
+
 type TweetProps = {
   tweet: TweetType;
 };
@@ -32,12 +48,11 @@ const Tweet = ({ tweet }: TweetProps) => {
 
         <View style={styles.footer}>
           {/* Comment IconButton */}
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            {/* Icon */}
-            <EvilIcons name="comment" size={22} color="gray" />
-            {/* Number */}
-            <Text style={{ fontSize: 12, color: "gray" }}>123</Text>
-          </View>
+          <IconButton icon="comment" text={tweet.numberOfComments} />
+          <IconButton icon="retweet" text={tweet.numberOfRetweets} />
+          <IconButton icon="heart" text={tweet.numberOfLikes} />
+          <IconButton icon="chart" text={tweet.impressions || 0} />
+          <IconButton icon="share-apple" />
         </View>
       </View>
     </View>
@@ -89,6 +104,7 @@ const styles = StyleSheet.create({
   footer: {
     flexDirection: "row",
     marginVertical: 5,
+    justifyContent: "space-between",
   },
 });
 export default Tweet;
