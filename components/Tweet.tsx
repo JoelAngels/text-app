@@ -7,41 +7,46 @@ import { Entypo, EvilIcons } from "@expo/vector-icons";
 import IconButton from "./IconButton";
 import { TweetType } from "../types";
 
+import { Link } from "expo-router";
+
 type TweetProps = {
   tweet: TweetType;
 };
 
 const Tweet = ({ tweet }: TweetProps) => {
   return (
-    <View style={styles.container}>
-      <Image src={tweet.user.image} style={styles.userImage} />
+    <Link href={"/Tweet"} asChild>
+      {/* when this view is pressed, navigate to a tweet */}
+      <Pressable style={styles.container}>
+        <Image src={tweet.user.image} style={styles.userImage} />
 
-      <View style={styles.mainContainer}>
-        <View style={{ flexDirection: "row" }}>
-          <Text style={styles.name}>{tweet.user.name}</Text>
-          <Text style={styles.username}>{tweet.user.username} .2h</Text>
-          <Entypo
-            name="dots-three-horizontal"
-            size={16}
-            color="gray"
-            style={{ marginLeft: "auto" }}
-          />
+        <View style={styles.mainContainer}>
+          <View style={{ flexDirection: "row" }}>
+            <Text style={styles.name}>{tweet.user.name}</Text>
+            <Text style={styles.username}>{tweet.user.username} .2h</Text>
+            <Entypo
+              name="dots-three-horizontal"
+              size={16}
+              color="gray"
+              style={{ marginLeft: "auto" }}
+            />
+          </View>
+
+          <Text style={styles.content}>{tweet.content}</Text>
+          {/* Rendering an item on a screen based on condition */}
+          {tweet.image && <Image src={tweet.image} style={styles.image} />}
+
+          <View style={styles.footer}>
+            {/* Comment IconButton */}
+            <IconButton icon="comment" text={tweet.numberOfComments} />
+            <IconButton icon="retweet" text={tweet.numberOfRetweets} />
+            <IconButton icon="heart" text={tweet.numberOfLikes} />
+            <IconButton icon="chart" text={tweet.impressions || 0} />
+            <IconButton icon="share-apple" />
+          </View>
         </View>
-
-        <Text style={styles.content}>{tweet.content}</Text>
-        {/* Rendering an item on a screen based on condition */}
-        {tweet.image && <Image src={tweet.image} style={styles.image} />}
-
-        <View style={styles.footer}>
-          {/* Comment IconButton */}
-          <IconButton icon="comment" text={tweet.numberOfComments} />
-          <IconButton icon="retweet" text={tweet.numberOfRetweets} />
-          <IconButton icon="heart" text={tweet.numberOfLikes} />
-          <IconButton icon="chart" text={tweet.impressions || 0} />
-          <IconButton icon="share-apple" />
-        </View>
-      </View>
-    </View>
+      </Pressable>
+    </Link>
   );
 };
 3178;
