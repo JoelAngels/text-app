@@ -1,9 +1,11 @@
+////Become really good at one company, be their 10x engineer
 import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 import React from "react";
 
 import { Entypo, EvilIcons } from "@expo/vector-icons";
 
 import IconButton from "./IconButton";
+import { TweetType } from "../types";
 
 type TweetProps = {
   tweet: TweetType;
