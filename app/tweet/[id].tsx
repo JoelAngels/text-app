@@ -7,9 +7,10 @@ import { useSearchParams } from "expo-router";
 export default function TweetScreen() {
   const { id } = useSearchParams();
 
-  console.warn(id);
+  // console.warn(id);
 
   // Query based on the id
+  //for every TweetScreen, look for the tweet id that is equal to the id from the search params
   const tweet = tweets.find((t) => t.id === id);
 
   if (!tweet) {
@@ -22,3 +23,6 @@ export default function TweetScreen() {
     </View>
   );
 }
+
+// $ npx uri-scheme open exp://192.168.0.16:19000/--/tweet/t0 --android
+//› Android: Opening URI "exp://192.168.0.16:19000/--/tweet/t0" in emulator
