@@ -12,7 +12,6 @@ export default function TweetScreen() {
   // Query based on the id
   //for every TweetScreen, look for the tweet id that is equal to the id from the search params
   const tweet = tweets.find((t) => t.id === id);
-
   if (!tweet) {
     return <Text>Tweet {id} not found</Text>;
   }
@@ -24,5 +23,7 @@ export default function TweetScreen() {
   );
 }
 
-// $ npx uri-scheme open exp://192.168.0.16:19000/--/tweet/t0 --android
+// Deep linking$ npx uri-scheme open exp://192.168.0.16:19000/--/tweet/t0 --android
 //› Android: Opening URI "exp://192.168.0.16:19000/--/tweet/t0" in emulator
+
+//2:35
