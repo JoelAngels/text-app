@@ -2,6 +2,7 @@ import { StyleSheet, FlatList, View, Pressable, Text } from "react-native";
 import Tweet from "../../components/Tweet";
 import tweets from "../../assets/data/tweets";
 import { Entypo } from "@expo/vector-icons";
+import { Link } from "expo-router";
 
 export default function TabOneScreen() {
   return (
@@ -11,9 +12,14 @@ export default function TabOneScreen() {
         renderItem={({ item }) => <Tweet tweet={item} />}
       />
 
-      <Pressable style={styles.floatingButton}>
-        <Entypo name="plus" size={24} color="white"></Entypo>
-      </Pressable>
+      <Link href="/new-tweet" asChild>
+        <Entypo
+          name="plus"
+          size={24}
+          color="white"
+          style={styles.floatingButton}
+        />
+      </Link>
     </View>
   );
 }
@@ -28,11 +34,22 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 50,
-    justifyContent: "center",
-    alignItems: "center",
+
+    textAlign: "center",
+    lineHeight: 50,
+
     position: "absolute",
     right: 15,
     bottom: 15,
-    cursor: "pointer",
+
+    shadowColor: "#000",
+    textShadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
 });

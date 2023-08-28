@@ -26,4 +26,4 @@ export default function TweetScreen() {
 // Deep linking$ npx uri-scheme open exp://192.168.0.16:19000/--/tweet/t0 --android
 //› Android: Opening URI "exp://192.168.0.16:19000/--/tweet/t0" in emulator
 
-//2:35
+//2:49
