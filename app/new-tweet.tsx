@@ -28,6 +28,7 @@ export default function Newtweet() {
 
     //reset to an empty screen
     setText("");
+    //go back to main page after tweeting
     router.back();
   };
 
