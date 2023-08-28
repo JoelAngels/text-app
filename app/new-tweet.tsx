@@ -9,7 +9,7 @@ import {
   Pressable,
   SafeAreaView,
 } from "react-native";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 
 const user = {
   id: "u1",
@@ -21,12 +21,14 @@ const user = {
 
 export default function Newtweet() {
   const [text, setText] = useState("");
+  const router = useRouter();
 
   const onTweetPress = () => {
     console.warn("Posting the tweet", text);
 
     //reset to an empty screen
     setText("");
+    router.back();
   };
 
   return (
