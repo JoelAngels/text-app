@@ -15,7 +15,7 @@ type TweetProps = {
 
 const Tweet = ({ tweet }: TweetProps) => {
   return (
-    <Link href={`/tweet/${tweet.id}`} asChild>
+    <Link href={`/feed/tweet/${tweet.id}`} asChild>
       {/* when this view is pressed, navigate to a tweet */}
       <Pressable style={styles.container}>
         <Image src={tweet.user.image} style={styles.userImage} />

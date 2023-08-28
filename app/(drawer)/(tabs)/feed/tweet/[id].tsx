@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
 import React, { Component } from "react";
-import tweets from "../../assets/data/tweets";
-import Tweet from "../../components/Tweet";
+import tweets from "../../../../../assets/data/tweets";
+import Tweet from "../../../../../components/Tweet";
 import { useSearchParams } from "expo-router";
 //navigate to the tweet whenever we press a tweet
 export default function TweetScreen() {
