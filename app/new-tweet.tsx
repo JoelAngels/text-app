@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import {
   View,
   Text,
@@ -6,6 +7,7 @@ import {
   StyleSheet,
   TextInput,
   Pressable,
+  SafeAreaView,
 } from "react-native";
 import { Link } from "expo-router";
 
@@ -18,41 +20,49 @@ const user = {
 };
 
 export default function Newtweet() {
+  const [text, setText] = useState("");
+
   const onTweetPress = () => {
-    console.warn("Posting the tweet");
+    console.warn("Posting the tweet", text);
+
+    //reset to an empty screen
+    setText("");
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.buttonContainer}>
-        <Link href="../" style={{ fontSize: 18 }}>
-          <Text>Cancel</Text>
-        </Link>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+      <View style={styles.container}>
+        <View style={styles.buttonContainer}>
+          <Link href="../" style={{ fontSize: 18 }}>
+            <Text>Cancel</Text>
+          </Link>
 
-        <Pressable onPress={onTweetPress} style={styles.button}>
-          <Text style={styles.buttonText}>Tweet</Text>
-        </Pressable>
-      </View>
+          <Pressable onPress={onTweetPress} style={styles.button}>
+            <Text style={styles.buttonText}>Tweet</Text>
+          </Pressable>
+        </View>
 
-      <View style={styles.inputContainer}>
-        <Image src={user.image} style={styles.image} />
-        <TextInput
-          placeholder="What's happening "
-          multiline
-          numberOfLines={5}
-          //take all the space but not more than you have
-          style={{ flex: 1 }}
-        />
+        <View style={styles.inputContainer}>
+          <Image src={user.image} style={styles.image} />
+          <TextInput
+            value={text}
+            onChangeText={setText}
+            placeholder="What's happening "
+            multiline
+            numberOfLines={5}
+            //take all the space but not more than you have
+            style={{ flex: 1 }}
+          />
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    backgroundColor: "white",
     flex: 1,
+    padding: 30,
   },
 
   buttonContainer: {
@@ -64,6 +74,8 @@ const styles = StyleSheet.create({
 
   inputContainer: {
     flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   image: {
