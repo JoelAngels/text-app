@@ -6,7 +6,7 @@ import Colors from "../../../constants/Colors";
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "feed",
+  initialRouteName: "two",
 };
 
 /**
@@ -47,7 +47,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="feed"
         options={{
-          title: "Tab One",
+          title: "Feed",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
